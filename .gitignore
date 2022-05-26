@@ -1,0 +1,6 @@
+/.vs
+/.vscode
+/bin
+/obj
+docker-compose.override.yml
+docker-compose.dcproj

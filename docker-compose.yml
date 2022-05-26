@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  envoygateway:
+    build: Envoy/
+    ports:
+      - "9902:9902"
+      - "10000:10000"
+    volumes:
+      - ./Envoy/envoy.yaml:/etc/envoy/envoy.yaml
+
+  balones:
+    image: ${DOCKER_REGISTRY-}balones
+    build:
+      context: .
+      dockerfile: Balones/Dockerfile
+    ports:
+      - '8082:80'
+    networks:
+      - master
+
+  uniformes:
+    image: ${DOCKER_REGISTRY-}uniformes
+    build:
+      context: .
+      dockerfile: Uniformes/Dockerfile
+    ports:
+      - '8084:80'
+    networks:
+      - master
+
+networks:
+  master:
+    external:
+      name: master

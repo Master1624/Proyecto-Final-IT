@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <title>Uniformes NBA</title>
+
+    <style>
+        body {
+            background-color: #f7f6f6;
+        }
+
+        table thead {
+            background-color: #0a4f70;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container mt-4 shadow-lg p-2 mb-2 bg-body rounded">
+        <ul class="nav nav-pills mb-1" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button onclick="location.href='index.html'" class="nav-link" id="pills-home-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
+                    aria-controls="pills-home" aria-selected="false">Uniformes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button onclick="location.href='balones.html'" class="nav-link active" id="pills-profile-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab"
+                    aria-controls="pills-profile" aria-selected="true">Balones</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button onclick="location.href='juan-diego.html'" class="nav-link" id="pills-caicedo-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-caicedo" type="button" role="tab"
+                    aria-controls="pills-caicedo" aria-selected="false">Juan Diego
+                    Caicedo</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button onclick="location.href='juan-david.html'" class="nav-link" id="pills-paladines-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-paladines" type="button" role="tab"
+                    aria-controls="pills-paladines" aria-selected="false">Juan David Paladines</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container mt-4 shadow-lg p-3 mb-0 bg-body rounded">
+
+        <button id="btncrear" type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#modalBalon">
+            Crear
+        </button>
+
+        <table id="tablaArticulos" class="table mt-2 table-bordered table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th>Id</th>
+                    <th>Marca</th>
+                    <th>Serial</th>
+                    <th>Material</th>
+                    <th>Fecha Creación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="modalBalon" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar Balones Baloncesto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-Marca" class="col-form-label">Marca:</label>
+                            <input type="text" class="form-control" id="recipientMarca" required autofocus />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-Serial" class="col-form-label">Serial:</label>
+                            <input type="number" class="form-control" id="recipientSerial" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-Material" class="col-form-label">Material:</label>
+                            <input type="text" class="form-control" id="recipientMaterial" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-Fecha" class="col-form-label">Fecha Creación</label>
+                            <input type="date" class="form-control" id="recipientFecha" required />
+                        </div>
+
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cerrar
+                            </button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-0 shadow-lg p-0 mb-5 bg-body rounded">
+        <!-- Footer -->
+        <footer class="text-center text-white" style="background-color: #0a4f70;">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: #0a4f70;;">
+                © 2022 Copyright: Juan Diego Caicedo - Juan David Paladines
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="balones.js"></script>
+</body>
+
+</html>

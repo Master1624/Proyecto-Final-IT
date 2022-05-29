@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <title>Uniformes NBA</title>
+
+    <style>
+        body {
+            background-color: #f7f6f6;
+        }
+
+        table thead {
+            background-color: #0a4f70;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container mt-4 shadow-lg p-2 mb-2 bg-body rounded">
+        <ul class="nav nav-pills mb-1" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button onclick="location.href='index.html'" class="nav-link" id="pills-home-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
+                    aria-controls="pills-home" aria-selected="false">Uniformes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button onclick="location.href='balones.html'" class="nav-link" id="pills-profile-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab"
+                    aria-controls="pills-profile" aria-selected="false">Balones</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button onclick="location.href='juan-diego.html'" class="nav-link" id="pills-caicedo-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-caicedo" type="button" role="tab"
+                    aria-controls="pills-caicedo" aria-selected="false">Juan Diego
+                    Caicedo</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button onclick="location.href='juan-david.html'" class="nav-link active" id="pills-paladines-tab"
+                    data-bs-toggle="pill" data-bs-target="#pills-paladines" type="button" role="tab"
+                    aria-controls="pills-paladines" aria-selected="true">Juan David Paladines</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container mt-4 shadow-lg p-3 mb-0 bg-body rounded">
+        <h1 style="text-align: center;">Juan David</h1>
+        <br>
+        <p>
+            Kubernetes (, commonly stylized as K8s) is an open-source container orchestration system for automating software deployment, scaling, and management. Google originally designed Kubernetes, but the Cloud Native Computing Foundation now maintains the project.
+        </p>
+        <p>
+            Kubernetes works with Docker, Containerd, and CRI-O. Originally, it interfaced exclusively with the Docker runtime through a "Dockershim"; however, from 2016 up to April 2022, Kubernetes has deprecated the shim in favor of directly interfacing with the container through Containerd or replacing Docker with a runtime that is compliant with the Container Runtime Interface (CRI). With the release of v1.24 in May 2022, "Dockershim" has been removed entirely.Amazon, Google, IBM, Microsoft, Oracle, Red Hat, SUSE, Platform9 and VMware offer Kubernetes-based platforms or infrastructure as a service (IaaS) that deploy Kubernetes.
+        </p>
+        <br>
+        <h3>
+            History
+        </h3>
+        <p>
+            Kubernetes was first announced by Google in mid-2014. Joe Beda, Brendan Burns, and Craig McLuckie were the initial founders of Kubernetes, but other Google engineers, including Brian Grant and Tim Hockin, joined them shortly thereafter. Google's Borg system had a significant influence on the design and development of Kubernetes. Many of the top contributors to the project previously worked on Borg. The original codename for Kubernetes within Google was Project 7, a reference to the Star Trek ex-Borg character Seven of Nine. The seven spokes on the wheel of the Kubernetes logo are a reference to that codename. The original Borg project was entirely in C++, but Kubernetes source code is in the Go language.
+        </p>
+        <p>
+            Kubernetes 1.0 was released on July 21, 2015, along which Google partnered with the Linux Foundation to form the Cloud Native Computing Foundation (CNCF) and offered Kubernetes as a seed technology. In February 2016, the Helm package manager for Kubernetes was released. On March 6, 2018, Kubernetes Project reached the ninth place in the list of GitHub projects by the number of commits, and second place in authors and issues, after the Linux kernel.Until version 1.18, Kubernetes followed an N-2 support policy, meaning that the three most recent minor versions receive security updates and bug fixes. Starting with version 1.19, Kubernetes follows an N-3 support policy.
+        </p>
+        <br>
+        <h3>
+            Concepts
+        </h3>
+        <p>
+            Kubernetes defines a set of building blocks ("primitives") that collectively provide mechanisms that deploy, maintain, and scale applications based on CPU, memory or custom metrics. Kubernetes is loosely coupled and extensible to meet different workloads. The internal components as well as extensions and containers that run on Kubernetes rely on the Kubernetes API. The platform exerts its control over compute and storage resources by defining resources as Objects, which can then be managed as such.
+        </p>
+        <p>
+            Kubernetes follows the primary/replica architecture. The components of Kubernetes can be divided into those that manage an individual node and those that are part of the control plane.
+        </p>
+        <br>
+        <h5>
+            Nodes
+        </h5>
+        <p>
+            A node, also known as a worker or a minion, is a machine where containers (workloads) are deployed. Every node in the cluster must run a container runtime such as Docker, as well as the below-mentioned components, for communication with the primary for network configuration of these containers.
+        </p>
+        <p>
+            Kubelet is responsible for the running state of each node, ensuring that all containers on the node are healthy. It takes care of starting, stopping, and maintaining application containers organized into pods as directed by the control plane. Kubelet monitors the state of a pod, and if not in the desired state, the pod re-deploys to the same node. Node status is relayed every few seconds via heartbeat messages to the primary. Once the primary detects a node failure, the Replication Controller observes this state change and launches pods on other healthy nodes.
+        </p>
+        <p>
+            Kube-proxy is an implementation of a network proxy and a load balancer, and it supports the service abstraction along with other networking operation. It is responsible for routing traffic to the appropriate container based on IP and port number of the incoming request.
+        </p>
+        <p>
+            A container resides inside a pod. The container is the lowest level of a micro-service, which holds the running application, libraries, and their dependencies. Containers can be exposed to the world through an external IP address. Kubernetes has supported Docker containers since its first version. In July 2016 the rkt container engine was added.
+        </p>
+        <br>
+        <h5>
+            Namespaces
+        </h5>
+        <p>
+            Kubernetes provides a partitioning of the resources it manages into non-overlapping sets called namespaces. They are intended for use in environments with many users spread across multiple teams, or projects, or even separating environments like development, test, and production.
+        </p>
+        <br>
+        <h5>
+            Pods
+        </h5>
+        <p>
+            The basic scheduling unit in Kubernetes is a pod, which consists of one or more containers that are guaranteed to be co-located on the same node. Each pod in Kubernetes is assigned a unique IP address within the cluster, allowing applications to use ports without the risk of conflict. Within the pod, all containers can reference each other. The containers can be running in different IP segment as well. However, for a container within one pod to access another container within another pod, it has to use the pod IP address. However, pod IP addresses are ephemeral; hence an application developer should never use hardcoded pod IP addresses because the specific pod that they are referencing may be assigned to another pod IP address on restart. Instead, they should use a reference to a service (see below), which holds a reference to the target pod at the specific pod IP address.
+        </p>
+        <p>
+            A pod can define a volume, such as a local disk directory or a network disk, and expose it to the containers in the pod. Pods can be managed manually through the Kubernetes API, or their management can be delegated to a controller. Such volumes are also the basis for the Kubernetes features of ConfigMaps (to provide access to configuration through the file system visible to the container) and Secrets (to provide access to credentials needed to access remote resources securely, by providing those credentials on the file system visible only to authorized containers).
+        </p>
+        <br>
+        <h5>
+            Services
+        </h5>
+        <p>
+            A Kubernetes service is a set of pods that work together, such as one tier of a multi-tier application. The set of pods that constitute a service are defined by a label selector. Kubernetes provides two modes of service discovery, using environmental variables or using Kubernetes DNS. Service discovery assigns a stable IP address and DNS name to the service, and load balances traffic in a round-robin manner to network connections of that IP address among the pods matching the selector (even as failures cause the pods to move from machine to machine). By default a service is exposed inside a cluster (e.g., back end pods might be grouped into a service, with requests from the front-end pods load-balanced among them), but a service can also be exposed outside a cluster (e.g., for clients to reach front-end pods).
+        </p>
+        <br>
+        <h5>
+            Volumes
+        </h5>
+        <p>
+            File systems in the Kubernetes container provide ephemeral storage, by default. This means that a restart of the pod will wipe out any data on such containers, and therefore, this form of storage is quite limiting in anything but trivial applications. A Kubernetes Volume provides persistent storage that exists for the lifetime of the pod itself. This storage can also be used as shared disk space for containers within the pod. Volumes are mounted at specific mount points within the container, which are defined by the pod configuration, and cannot mount onto other volumes or link to other volumes. The same volume can be mounted at different points in the file system tree by different containers.
+        </p>
+        <br>
+        <h5>
+            Storage
+        </h5>
+        <p>
+            Containers emerged as a way to make software portable. The container contains all the packages you need to run a service. The provided file system makes containers extremely portable and easy to use in development. A container can be moved from development to test or production with no or relatively few configuration changes.
+        </p>
+        <p>
+            Historically Kubernetes was suitable only for stateless services. However, many applications have a database, which requires persistence, which leads to the creation of persistent storage for Kubernetes. Implementing persistent storage for containers is one of the top challenges of Kubernetes administrators, DevOps and cloud engineers. Containers may be ephemeral, but more and more of their data is not, so one needs to ensure the data's survival in case of container termination or hardware failure. When deploying containers with Kubernetes or containerized applications, companies often realize that they need persistent storage. They need to provide fast and reliable storage for databases, root images and other data used by the containers.
+        </p>
+        <p>
+            In addition to the landscape, the Cloud Native Computing Foundation (CNCF), has published other information about Kubernetes Persistent Storage including a blog helping to define the container attached storage pattern. This pattern can be thought of as one that uses Kubernetes itself as a component of the storage system or service.More information about the relative popularity of these and other approaches can be found on the CNCF's landscape survey as well, which showed that OpenEBS from MayaData and Rook - a storage orchestration project - were the two projects most likely to be in evaluation as of the Fall of 2019.Container Attached Storage is a type of data storage that emerged as Kubernetes gained prominence. The Container Attached Storage approach or pattern relies on Kubernetes itself for certain capabilities while delivering primarily block, file, object and interfaces to workloads running on Kubernetes.Common attributes of Container Attached Storage include the use of extensions to Kubernetes, such as custom resource definitions, and the use of Kubernetes itself for functions that otherwise would be separately developed and deployed for storage or data management. Examples of functionality delivered by custom resource definitions or by Kubernetes itself include retry logic, delivered by Kubernetes itself, and the creation and maintenance of an inventory of available storage media and volumes, typically delivered via a custom resource definition.
+        </p>
+        <br>
+        <h5>
+            API
+        </h5>
+        <p>
+            A key component of the Kubernetes control plane is the API Server, which exposes an HTTP API that can be invoked by other parts of the cluster as well as end users and external components. This API is a REST API and is declarative in nature. There are two kinds of API resources. Most of the API resources in the Kubernetes API are objects. These represent a concrete instance of a concept on the cluster, like a pod or namespace. A small number of API resource types are "virtual". These represent operations rather than objects, such as a permission check, using the "subjectaccessreviews" resource. API resources that correspond to objects will be represented in the cluster with unique identifiers for the objects. Virtual resources do not have unique identifiers.
+        </p>
+        <br>
+        <h5>
+            Operators
+        </h5>
+        <p>
+            Kubernetes can be extended using Custom Resources. These API resources represent objects that are not part of the standard Kubernetes product. These resources can appear and disappear in a running cluster through dynamic registration. Cluster administrators can update Custom Resources independently of the cluster.
+        </p>
+        <p>
+            Custom Controllers are another extension mechanism. These interact with Custom Resources, and allow for a true declarative API that allows for the lifecycle management of Custom Resource that is aligned with the way that Kubernetes itself is designed. The combination of Custom Resources and Custom Controllers are often referred to as an (Kubernetes) Operator. The key use case for Operators are to capture the aim of a human operator who is managing a service or set of services and to implement them using automation, and with a declarative API supporting this automation. Human operators who look after specific applications and services have deep knowledge of how the system ought to behave, how to deploy it, and how to react if there are problems. Examples of problems solved by Operators include taking and restoring backups of that application's state, and handling upgrades of the application code alongside related changes such as database schemas or extra configuration settings.
+        </p>
+        <br>
+        <h5>
+            Cluster API
+        </h5>
+        <p>
+            The same API design principles have been used to define an API to programmatically create, configure, and manage Kubernetes clusters. This is called the Cluster API. A key concept embodied in the API is using Infrastructure as Software, or the notion that the Kubernetes cluster infrastructure is itself a resource / object that can be managed just like any other Kubernetes resources. Similarly, machines that make up the cluster are also treated as a Kubernetes resource. The API has two pieces - the core API, and a provider implementation. The provider implementation consists of cloud-provider specific functions that let Kubernetes provide the cluster API in a fashion that is well-integrated with the cloud-provider's services and resources.
+        </p>
+        <br>
+        <h5>
+            Uses
+        </h5>
+        <p>
+            Kubernetes is commonly used as a way to host a microservice-based implementation, because it and its associated ecosystem of tools provide all the capabilities needed to address key concerns of any microservice architecture. It is available in three forms: open source, commercial, and managed. Open source distributions include the original Kubernetes, Amazon EKS-D, Red Hat OpenShift, VMware Tanzu, Mirantis Kubernetes Engine, and D2iQ Kubernetes Platform. Managed offerings include GKE, Oracle Container Engine for Kubernetes, Amazon Elastic Kubernetes Service, IBM Kubernetes Service, and Platform9 Managed Kubernetes.
+        </p>
+
+    </div>
+
+    <div class="container mt-0 shadow-lg p-0 mb-5 bg-body rounded">
+        <!-- Footer -->
+        <footer class="text-center text-white" style="background-color: #0a4f70;">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: #0a4f70;;">
+                © 2022 Copyright: Juan Diego Caicedo - Juan David Paladines
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -31,5 +31,5 @@ services:
 
 networks:
   master:
-    external:
-      name: master
+    name: master
+    external: true

@@ -7,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddCors(c => {
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 builder.Services.AddDbContext<ContextoBalon>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ClaseConexion"));
@@ -15,6 +19,8 @@ builder.Services.AddDbContext<ContextoBalon>(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+app.UseCors("AllowOrigin");
 
 app.UseAuthorization();
 

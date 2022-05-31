@@ -1,9 +1,5 @@
 // Capturar variables y elementos necesarios
-const url = "http://localhost:10000/balones/balones";
-const eliminar = "http://localhost:10000/balones/borrarregistro?idmarcabalon=";
-const crear = "http://localhost:10000/balones/AgregarNuevoRegistro";
-const editar =
-  "http://localhost:10000/balones/ActualizarRegistro?idmarcabalon=";
+const url = "http://localhost:10000/balones/";
 const contenedor = document.querySelector("tbody");
 let resultados = "";
 
@@ -61,7 +57,7 @@ const on = (element, event, selector, handler) => {
 on(document, "click", ".btnBorrar", (e) => {
   const fila = e.target.parentNode.parentNode;
   const id = fila.firstElementChild.innerHTML;
-  fetch(eliminar + id, {
+  fetch(url + id, {
     method: "DELETE",
   })
     .then((res) => res.json())
@@ -97,7 +93,7 @@ formArticulo.addEventListener("submit", (e) => {
   };
   console.log(data)
   if (opcion == "crear") {
-    fetch(crear, {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -113,7 +109,7 @@ formArticulo.addEventListener("submit", (e) => {
       });
   }
   if (opcion == "editar") {
-    fetch(editar + idForm, {
+    fetch(url + idForm, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -1,9 +1,5 @@
 // Capturar variables y elementos necesarios
-const url = "http://localhost:10000/uniformes/uniformes";
-const eliminar = "http://localhost:10000/uniformes/borrarregistro?iduniforme=";
-const crear = "http://localhost:10000/uniformes/AgregarNuevoUniforme";
-const editar =
-  "http://localhost:10000/uniformes/ActualizarRegistro?iduniforme=";
+const url = "http://localhost:10000/uniformes/";
 const contenedor = document.querySelector("tbody");
 let resultados = "";
 
@@ -61,7 +57,7 @@ const on = (element, event, selector, handler) => {
 on(document, "click", ".btnBorrar", (e) => {
   const fila = e.target.parentNode.parentNode;
   const id = fila.firstElementChild.innerHTML;
-  fetch(eliminar + id, {
+  fetch(url + id, {
     method: "DELETE",
   })
     .then((res) => res.json())
@@ -97,7 +93,7 @@ formArticulo.addEventListener("submit", (e) => {
   };
   console.log(data)
   if (opcion == "crear") {
-    fetch(crear, {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -113,17 +109,12 @@ formArticulo.addEventListener("submit", (e) => {
       });
   }
   if (opcion == "editar") {
-    fetch(editar + idForm, {
+    fetch(url + idForm, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        nombre: nombre.value,
-        equipoBaloncesto: equipo.value,
-        colorUniforme: color.value,
-        temporadaUniforme: temporada.value,
-      }),
+      body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then(() => location.reload());

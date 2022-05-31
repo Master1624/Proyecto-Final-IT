@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Uniformes.Models;
 using Uniformes.Persistencia;
@@ -5,49 +6,94 @@ using Uniformes.Persistencia;
 namespace Uniformes.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
-    public class UniformesController:ControllerBase
+    [Route("[controller]")]
+    public class UniformesController : ControllerBase
     {
         private readonly ContextoUniforme _contexto;
         public UniformesController(ContextoUniforme contexto)
         {
             _contexto = contexto;
         }
-        [HttpPost]
-        public bool AgregarNuevoUniforme(UniformeB uniforme)
-        {
-            _contexto.Add(uniforme);
-            _contexto.SaveChanges();
-            return true;
-        }
         [HttpGet]
-        public List<UniformeB> Uniformes()
+        public ActionResult Get()
         {
-            return _contexto.UniformesBaloncesto.ToList();
-        }
-        [HttpDelete]
-        public bool BorrarRegistro(int IdUniforme)
-        {
-            var registro = _contexto.UniformesBaloncesto.FirstOrDefault(uniforme => uniforme.IdUniforme == IdUniforme);
-            if (registro == null) return false;
-            else
+            try
             {
-                _contexto.UniformesBaloncesto.Remove(registro);
-                _contexto.SaveChanges();
-                return true;
+                return Ok(_contexto.UniformesBaloncesto.ToList());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
-        [HttpPut]
-        public bool ActualizarRegistro(int IdUniforme, UniformeB uniforme)
+        [HttpGet("{IdUniforme}", Name = "GetUniforme")]
+        public ActionResult Get(int IdUniforme)
         {
-            var registro = _contexto.UniformesBaloncesto.FirstOrDefault(uniforme => uniforme.IdUniforme == IdUniforme);
-            if (registro == null) return false;
-            else
+            try
             {
-                _contexto.UniformesBaloncesto.Remove(registro);
+                var registro = _contexto.UniformesBaloncesto.FirstOrDefault(uniforme => uniforme.IdUniforme == IdUniforme);
+                return Ok(registro);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost]
+        public ActionResult Post(UniformeB uniforme)
+        {
+            try
+            {
                 _contexto.Add(uniforme);
                 _contexto.SaveChanges();
-                return true;
+                return CreatedAtRoute("GetUniforme", new { IdUniforme = uniforme.IdUniforme }, uniforme);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut("{IdUniforme}")]
+        public ActionResult Put(int IdUniforme, UniformeB uniforme)
+        {
+            try
+            {
+                if (uniforme.IdUniforme == IdUniforme)
+                {
+                    _contexto.Entry(uniforme).State = EntityState.Modified;
+                    _contexto.SaveChanges();
+                    return CreatedAtRoute("GetUniforme", new { IdUniforme = uniforme.IdUniforme }, uniforme);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("{IdUniforme}")]
+        public ActionResult Delete(int IdUniforme)
+        {
+            try
+            {
+                var registro = _contexto.UniformesBaloncesto.FirstOrDefault(uniforme => uniforme.IdUniforme == IdUniforme);
+                if (registro != null)
+                {
+                    _contexto.UniformesBaloncesto.Remove(registro);
+                    _contexto.SaveChanges();
+                    return Ok(IdUniforme);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

@@ -7,11 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddCors(c => {
+builder.Services.AddCors(c =>
+{
     c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
-builder.Services.AddDbContext<ContextoUniforme>(options => {
+builder.Services.AddDbContext<ContextoUniforme>(options =>
+{
     options.UseNpgsql(builder.Configuration.GetConnectionString("ClaseConexion"));
 });
 

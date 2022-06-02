@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import UniformesList from "./UniformesList";
+import UniformForm from "../Form/UniformForm";
 import "./Uniformes.module.css";
 
 const Uniformes = () => {
@@ -8,6 +9,16 @@ const Uniformes = () => {
   const [uniform, setUniform] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const [formIsShown, setFormIsShown] = useState(false);
+
+  const showFormHandler = () => {
+    setFormIsShown(true);
+  }
+
+  const hideFormHandler = () => {
+    setFormIsShown(false)
+  }
 
   const fetchUniformes = useCallback(async () => {
     setIsLoading(true);
@@ -53,7 +64,8 @@ const Uniformes = () => {
   return (
     <React.Fragment>
       <section>
-        <button onClick={fetchUniformes}>Fetch Uniformes</button>
+        <button onClick={showFormHandler}>Add New Uniform</button>
+        {formIsShown && <UniformForm onClose={hideFormHandler} />}
       </section>
       {content}
     </React.Fragment>

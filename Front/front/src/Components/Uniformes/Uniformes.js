@@ -55,7 +55,7 @@ const Uniformes = () => {
       <section>
         <button onClick={fetchUniformes}>Fetch Uniformes</button>
       </section>
-      <section>{content}</section>
+      {content}
     </React.Fragment>
   );
 };

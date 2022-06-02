@@ -3,7 +3,7 @@ import classes from "./UniformesList.module.css";
 
 const UniformesList = (props) => {
   return (
-    <ul className={classes["uniformes-list"]}>
+    <div className={classes["uniformes-list"]}>
       {props.uniforms.map((uniform) => (
         <Uniforme
           key={uniform.id}
@@ -13,7 +13,7 @@ const UniformesList = (props) => {
           temporada={uniform.temporada}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 

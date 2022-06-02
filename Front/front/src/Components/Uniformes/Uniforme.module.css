@@ -1,20 +1,27 @@
 .uniforme {
-    margin: 1rem;
-    padding: 1rem;
-    background-color: #230052;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 12px;
-    text-align: center;
-    color: white;
-  }
-  
-  .uniforme h2 {
-    font-size: 2rem;
-    color: #f7e702;
-  }
-  
-  .uniforme h3 {
-    color: #eccf77;
-    margin: 0;
-    font-size: 1rem;
-  }
+  margin: 1rem;
+  padding: 1rem;
+  display: block;
+  width: 400px;
+  background-color: #230052;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+}
+
+.uniforme h1 {
+  font-size: 3rem;
+  color: #e2aa00;
+}
+
+.uniforme h2 {
+  font-size: 2rem;
+  color: #f7e702;
+}
+
+.uniforme h3 {
+  color: #eccf77;
+  margin: 0;
+  font-size: 1rem;
+}
